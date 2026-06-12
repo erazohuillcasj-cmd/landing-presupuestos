@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PresupuestOS — JE Metrados Edificaciones</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --azul: #1a3a6b;
+    --azul-claro: #2563eb;
+    --naranja: #f59e0b;
+    --blanco: #ffffff;
+    --gris-claro: #f8fafc;
+    --gris-texto: #64748b;
+    --negro: #0f172a;
+  }
+
+  body { font-family: 'Inter', sans-serif; color: var(--negro); background: var(--blanco); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo .icon { width: 36px; height: 36px; background: var(--azul); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; }
+  .nav-logo .nombre { font-weight: 700; font-size: 16px; color: var(--azul); }
+  .nav-logo .sub { font-size: 11px; color: var(--gris-texto); }
+  .nav-btn { background: var(--azul); color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1a3a6b 50%, #1e40af 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 120px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { position: relative; max-width: 800px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.4); color: var(--naranja); padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 6vw, 68px); color: white; line-height: 1.1; margin-bottom: 24px; }
+  .hero h1 span { color: var(--naranja); }
+  .hero p { font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--naranja); color: white; border: none; border-radius: 10px; padding: 14px 32px; font-size: 16px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; padding: 14px 32px; font-size: 16px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+  .hero-stats { display: flex; gap: 48px; justify-content: center; margin-top: 64px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 36px; font-weight: 800; color: white; }
+  .stat .label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  /* PROBLEMA */
+  .seccion { padding: 100px 24px; }
+  .contenedor { max-width: 1100px; margin: 0 auto; }
+  .etiqueta { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azul-claro); margin-bottom: 12px; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 44px); color: var(--negro); line-height: 1.2; margin-bottom: 16px; }
+  .subtitulo { font-size: 18px; color: var(--gris-texto); line-height: 1.7; max-width: 600px; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+  .card { background: var(--gris-claro); border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; }
+  .card .icono { font-size: 36px; margin-bottom: 16px; }
+  .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--negro); }
+  .card p { font-size: 15px; color: var(--gris-texto); line-height: 1.6; }
+
+  /* COMO FUNCIONA */
+  .fondo-azul { background: var(--gris-claro); }
+  .pasos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 48px; }
+  .paso { text-align: center; }
+  .paso .num { width: 56px; height: 56px; background: var(--azul); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; font-weight: 800; margin: 0 auto 16px; }
+  .paso h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .paso p { font-size: 14px; color: var(--gris-texto); line-height: 1.6; }
+  .flecha { display: flex; align-items: center; justify-content: center; color: var(--gris-texto); font-size: 24px; padding-top: 16px; }
+
+  /* PRECIOS IA */
+  .tabla-precios { width: 100%; border-collapse: collapse; margin-top: 48px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  .tabla-precios th { background: var(--azul); color: white; padding: 16px; text-align: center; font-size: 14px; font-weight: 600; }
+  .tabla-precios td { padding: 16px; text-align: center; font-size: 15px; border-bottom: 1px solid #e2e8f0; }
+  .tabla-precios tr:last-child td { border-bottom: none; }
+  .tabla-precios tr:nth-child(even) { background: var(--gris-claro); }
+  .precio { font-weight: 700; color: var(--azul-claro); font-size: 16px; }
+  .fila-label { font-weight: 600; color: var(--negro); background: #f1f5f9 !important; }
+
+  /* PLANES */
+  .planes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+  .plan { border-radius: 20px; padding: 40px; border: 2px solid #e2e8f0; position: relative; }
+  .plan.destacado { border-color: var(--azul); background: var(--azul); color: white; }
+  .plan .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--naranja); color: white; padding: 4px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .plan h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .plan .precio-grande { font-size: 48px; font-weight: 800; margin: 16px 0 4px; }
+  .plan .periodo { font-size: 14px; color: var(--gris-texto); margin-bottom: 24px; }
+  .plan.destacado .periodo { color: rgba(255,255,255,0.7); }
+  .plan ul { list-style: none; margin-bottom: 32px; }
+  .plan ul li { padding: 8px 0; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+  .plan ul li::before { content: '✓'; color: var(--naranja); font-weight: 700; }
+  .plan.destacado ul li::before { color: var(--naranja); }
+  .btn-plan { display: block; text-align: center; background: var(--azul-claro); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; }
+  .plan.destacado .btn-plan { background: var(--naranja); }
+
+  /* TESTIMONIOS */
+  .testimonio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+  .testimonio { background: var(--gris-claro); border-radius: 16px; padding: 32px; border-left: 4px solid var(--azul-claro); }
+  .testimonio p { font-size: 16px; color: var(--negro); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+  .testimonio .autor { font-weight: 700; font-size: 14px; color: var(--azul); }
+  .testimonio .cargo { font-size: 13px; color: var(--gris-texto); }
+
+  /* CTA */
+  .cta { background: linear-gradient(135deg, var(--azul) 0%, #1e40af 100%); padding: 100px 24px; text-align: center; }
+  .cta h2 { color: white; margin-bottom: 16px; }
+  .cta p { color: rgba(255,255,255,0.8); font-size: 18px; margin-bottom: 40px; }
+
+  /* INFO LEGAL */
+  .legal { background: #0f172a; color: rgba(255,255,255,0.6); padding: 60px 24px 40px; }
+  .legal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+  .legal h4 { color: white; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+  .legal p, .legal a { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+  .legal a:hover { color: white; }
+  .legal-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 16px; font-size: 13px; }
+
+  /* TERMINOS */
+  .terminos { padding: 80px 24px; background: var(--gris-claro); }
+  .terminos h2 { font-size: 28px; margin-bottom: 24px; }
+  .terminos h3 { font-size: 18px; font-weight: 700; margin: 32px 0 12px; color: var(--azul); }
+  .terminos p, .terminos li { font-size: 15px; color: var(--gris-texto); line-height: 1.8; margin-bottom: 8px; }
+  .terminos ul { padding-left: 20px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .seccion { padding: 60px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-stats { gap: 24px; }
+    .flecha { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="icon">🏗</div>
+    <div>
+      <div class="nombre">PresupuestOS</div>
+      <div class="sub">JE Metrados Edificaciones</div>
+    </div>
+  </div>
+  <a href="https://presupuesto-obras.vercel.app" class="nav-btn">Iniciar sesión →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🤖 Inteligencia Artificial para construcción peruana</div>
+    <h1>Presupuestos de obra<br><span>en minutos, no semanas</span></h1>
+    <p>Sube tus planos y nuestra IA extrae automáticamente los metrados y genera el presupuesto completo según normas NTE peruanas.</p>
+    <div class="hero-btns">
+      <a href="https://presupuesto-obras.vercel.app" class="btn-primary">Crear cuenta gratis →</a>
+      <a href="#como-funciona" class="btn-secondary">Ver cómo funciona</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">5 min</div><div class="label">Tiempo promedio de análisis</div></div>
+      <div class="stat"><div class="num">88+</div><div class="label">Partidas calculadas</div></div>
+      <div class="stat"><div class="num">NTE</div><div class="label">Normas peruanas aplicadas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="seccion">
+  <div class="contenedor">
+    <div class="etiqueta">El problema</div>
+    <h2>Hacer un presupuesto manual<br>cuesta tiempo y dinero</h2>
+    <p class="subtitulo">Un ingeniero tarda entre 3 y 7 días en elaborar un presupuesto de obra. Con PresupuestOS lo tienes en minutos.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icono">⏰</div>
+        <h3>Días de trabajo manual</h3>
+        <p>Medir cada elemento del plano, calcular volúmenes y metrados a mano consume días valiosos del proyectista.</p>
+      </div>
+      <div class="card">
+        <div class="icono">💸</div>
+        <h3>Costos elevados</h3>
+        <p>Contratar un ingeniero para un presupuesto cuesta entre S/. 500 y S/. 2,000 según la complejidad del proyecto.</p>
+      </div>
+      <div class="card">
+        <div class="icono">❌</div>
+        <h3>Errores humanos</h3>
+        <p>El cálculo manual es propenso a errores de medición y omisión de partidas que encarecen la obra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="seccion fondo-azul" id="como-funciona">
+  <div class="contenedor">
+    <div class="etiqueta">Cómo funciona</div>
+    <h2>Del plano al presupuesto<br>en 4 pasos</h2>
+    <div class="pasos">
+      <div class="paso">
+        <div class="num">1</div>
+        <h3>Crea tu proyecto</h3>
+        <p>Ingresa el nombre, ubicación, número de pisos y área total del proyecto.</p>
+      </div>
+      <div class="flecha">→</div>
+      <div class="paso">
+        <div class="num">2</div>
+        <h3>Sube tus planos</h3>
+        <p>Carga los planos en PDF o imagen (arquitectura, estructuras, instalaciones).</p>
+      </div>
+      <div class="flecha">→</div>
+      <div class="paso">
+        <div class="num">3</div>
+        <h3>La IA analiza todo</h3>
+        <p>Nuestra IA extrae automáticamente columnas, vigas, muros, pisos, instalaciones y más.</p>
+      </div>
+      <div class="flecha">→</div>
+      <div class="paso">
+        <div class="num">4</div>
+        <h3>Descarga el presupuesto</h3>
+        <p>Exporta en PDF o Excel con todas las partidas, precios unitarios y totales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARACTERISTICAS -->
+<section class="seccion">
+  <div class="contenedor">
+    <div class="etiqueta">Características</div>
+    <h2>Todo lo que necesitas<br>en un solo sistema</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icono">🤖</div>
+        <h3>Análisis IA de planos</h3>
+        <p>Inteligencia artificial que lee tus planos y extrae todos los elementos constructivos automáticamente.</p>
+      </div>
+      <div class="card">
+        <div class="icono">📐</div>
+        <h3>Metrados automáticos</h3>
+        <p>Calcula excavaciones, cimentaciones, estructuras, arquitectura e instalaciones según NTE E.060, E.030, IS.010.</p>
+      </div>
+      <div class="card">
+        <div class="icono">💰</div>
+        <h3>Precios por zona</h3>
+        <p>Base de precios actualizada para Junín/Huancayo, Lima, Norte y Sur del Perú.</p>
+      </div>
+      <div class="card">
+        <div class="icono">📊</div>
+        <h3>Export PDF y Excel</h3>
+        <p>Genera cotizaciones profesionales con logo de tu empresa, precios unitarios y resumen financiero.</p>
+      </div>
+      <div class="card">
+        <div class="icono">🔩</div>
+        <h3>Resumen de acero</h3>
+        <p>Calcula la cantidad exacta de varillas de acero por diámetro para la lista de materiales.</p>
+      </div>
+      <div class="card">
+        <div class="icono">🏗</div>
+        <h3>Módulos completos</h3>
+        <p>Obras provisionales, tierras, cimentaciones, estructuras, arquitectura e instalaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS IA -->
+<section class="seccion fondo-azul" id="precios">
+  <div class="contenedor">
+    <div class="etiqueta">Precios</div>
+    <h2>Software gratuito.<br>Paga solo por el análisis IA.</h2>
+    <p class="subtitulo">Todos los módulos de presupuesto manual son completamente gratuitos. Solo cobras cuando usas la IA para analizar planos automáticamente.</p>
+
+    <table class="tabla-precios">
+      <thead>
+        <tr>
+          <th>Pisos del proyecto</th>
+          <th>Hasta 100 m²</th>
+          <th>100 – 200 m²</th>
+          <th>200 – 400 m²</th>
+          <th>400 m²+</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fila-label">1 piso</td>
+          <td class="precio">S/. 59</td>
+          <td class="precio">S/. 89</td>
+          <td class="precio">S/. 119</td>
+          <td class="precio">S/. 149</td>
+        </tr>
+        <tr>
+          <td class="fila-label">2 pisos</td>
+          <td class="precio">S/. 89</td>
+          <td class="precio">S/. 119</td>
+          <td class="precio">S/. 149</td>
+          <td class="precio">S/. 199</td>
+        </tr>
+        <tr>
+          <td class="fila-label">3 – 4 pisos</td>
+          <td class="precio">S/. 119</td>
+          <td class="precio">S/. 149</td>
+          <td class="precio">S/. 199</td>
+          <td class="precio">S/. 249</td>
+        </tr>
+        <tr>
+          <td class="fila-label">5 pisos o más</td>
+          <td class="precio">S/. 149</td>
+          <td class="precio">S/. 199</td>
+          <td class="precio">S/. 249</td>
+          <td class="precio">S/. 299</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 48px;">
+      <div class="etiqueta">Planes de suscripción IA ilimitada</div>
+      <div class="planes">
+        <div class="plan">
+          <h3>Plan Mensual</h3>
+          <p style="color: var(--gris-texto); font-size: 14px;">Análisis IA ilimitados</p>
+          <div class="precio-grande" style="color: var(--azul);">S/. 300</div>
+          <p class="periodo">/mes</p>
+          <ul>
+            <li>Análisis IA sin límite</li>
+            <li>Todos los módulos incluidos</li>
+            <li>Export PDF y Excel ilimitado</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a href="https://presupuesto-obras.vercel.app" class="btn-plan">Suscribirme ahora</a>
+        </div>
+        <div class="plan destacado">
+          <div class="badge">⭐ Ahorra 30%</div>
+          <h3>Plan Anual</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 14px;">La mejor opción para tu negocio</p>
+          <div class="precio-grande">S/. 2,500</div>
+          <p class="periodo">/año</p>
+          <ul>
+            <li>Análisis IA sin límite</li>
+            <li>Todos los módulos incluidos</li>
+            <li>Export PDF y Excel ilimitado</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a href="https://presupuesto-obras.vercel.app" class="btn-plan">Suscribirme ahora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="contenedor">
+    <h2>Empieza hoy mismo — es gratis</h2>
+    <p>Tu primer proyecto de 1 piso incluye el análisis IA sin costo. Sin tarjeta requerida.</p>
+    <a href="https://presupuesto-obras.vercel.app" class="btn-primary" style="font-size: 18px; padding: 16px 40px;">Crear cuenta gratis →</a>
+  </div>
+</section>
+
+<!-- INFO EMPRESA Y LEGAL -->
+<footer class="legal">
+  <div class="contenedor">
+    <div class="legal-grid">
+      <div>
+        <h4>JE Metrados Edificaciones</h4>
+        <p>RUC: 10742201053</p>
+        <p>Junín, Perú</p>
+        <p>erazohuillcasj@gmail.com</p>
+      </div>
+      <div>
+        <h4>Producto</h4>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#precios">Precios</a>
+        <a href="https://presupuesto-obras.vercel.app">Iniciar sesión</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#terminos">Términos y condiciones</a>
+        <a href="#privacidad">Política de privacidad</a>
+      </div>
+      <div>
+        <h4>Pago seguro</h4>
+        <p>Procesado por Culqi</p>
+        <p>Tarjetas Visa y Mastercard</p>
+        <p>Yape disponible</p>
+      </div>
+    </div>
+    <div class="legal-bottom">
+      <span>© 2026 JE Metrados Edificaciones — RUC 10742201053. Todos los derechos reservados.</span>
+      <span>Hecho en Junín, Perú 🇵🇪</span>
+    </div>
+  </div>
+</footer>
+
+<!-- TERMINOS Y CONDICIONES -->
+<section class="terminos" id="terminos">
+  <div class="contenedor" style="max-width: 800px;">
+    <h2>Términos y Condiciones</h2>
+    <p>Última actualización: junio 2026</p>
+
+    <h3>1. Descripción del servicio</h3>
+    <p>PresupuestOS es un software de elaboración de presupuestos de obras civiles desarrollado y operado por JE Metrados Edificaciones (RUC 10742201053), con sede en Junín, Perú. El servicio permite a los usuarios elaborar presupuestos de construcción de forma manual y mediante análisis automatizado de planos con inteligencia artificial.</p>
+
+    <h3>2. Registro y cuenta</h3>
+    <p>Para acceder al servicio, el usuario debe registrarse con un correo electrónico válido y una contraseña. El usuario es responsable de mantener la confidencialidad de sus credenciales.</p>
+
+    <h3>3. Descripción de productos y servicios</h3>
+    <p>El software ofrece los siguientes servicios:</p>
+    <ul>
+      <li>Elaboración manual de presupuestos de obras (gratuito)</li>
+      <li>Análisis automático de planos con IA para extracción de metrados (pago por uso)</li>
+      <li>Exportación de presupuestos en PDF y Excel</li>
+      <li>Cálculo de lista de materiales con precios referenciales por zona geográfica</li>
+    </ul>
+
+    <h3>4. Precios y pagos</h3>
+    <p>El análisis IA de planos tiene un costo según la tabla de precios publicada en este sitio web, determinada por el número de pisos y el área total del proyecto. Los pagos se procesan de forma segura a través de Culqi. Los precios están expresados en Soles (S/.) e incluyen IGV.</p>
+
+    <h3>5. Política de reembolso</h3>
+    <p>Dado que el servicio de análisis IA se presta de forma inmediata al momento del pago, no se realizan reembolsos una vez ejecutado el análisis. En caso de error técnico imputable al sistema, el usuario puede solicitar un nuevo análisis sin costo adicional contactando a erazohuillcasj@gmail.com.</p>
+
+    <h3>6. Limitación de responsabilidad</h3>
+    <p>Los presupuestos generados por el sistema son referenciales y no reemplazan el criterio profesional de un ingeniero civil colegiado. JE Metrados Edificaciones no se responsabiliza por decisiones tomadas exclusivamente en base a los resultados del software.</p>
+
+    <h3>7. Propiedad intelectual</h3>
+    <p>Todo el software, diseño y contenido de PresupuestOS es propiedad de JE Metrados Edificaciones. Los planos y documentos subidos por el usuario son de su exclusiva propiedad y no serán compartidos con terceros.</p>
+
+    <h3>8. Ley aplicable</h3>
+    <p>Estos términos se rigen por las leyes de la República del Perú. Cualquier disputa será resuelta en los tribunales de la ciudad de Huancayo, Junín.</p>
+
+    <h3 id="privacidad">Política de Privacidad</h3>
+    <p>JE Metrados Edificaciones recopila únicamente el correo electrónico y los datos del proyecto necesarios para prestar el servicio. No vendemos ni compartimos datos personales con terceros. Los datos de pago son procesados directamente por Culqi y no son almacenados en nuestros servidores. Para ejercer sus derechos de acceso, rectificación o eliminación de datos, contacte a erazohuillcasj@gmail.com.</p>
+  </div>
+</section>
+
+</body>
+</html>
