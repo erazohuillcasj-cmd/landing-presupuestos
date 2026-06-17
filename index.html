@@ -157,9 +157,12 @@ footer{padding:60px 24px 40px;background:#080a0f}
     <a href="#servicios">Servicios</a>
     <a href="#precios">Precios</a>
     <a href="#contacto">Contacto</a>
+    <a href="#terminos">T&amp;C</a>
+    <a href="#devoluciones">Devoluciones</a>
     <a href="#reclamaciones">Reclamaciones</a>
   </div>
-  <a href="https://app.jemetrados.com" class="nav-cta">Iniciar sesión →</a>
+
+  <a href="https://presupuesto-obras.vercel.app" class="nav-cta">Iniciar sesión →</a>
 </nav>
 
 <!-- HERO -->
@@ -170,7 +173,7 @@ footer{padding:60px 24px 40px;background:#080a0f}
     <h1>Presupuestos de obra<br><em>en minutos, no días</em></h1>
     <p>Sube tus planos y nuestra IA extrae automáticamente los metrados y genera el presupuesto completo según normas NTE peruanas.</p>
     <div class="btns">
-      <a href="https://app.jemetrados.com" class="btn-o">🚀 Crear cuenta gratis</a>
+      <a href="https://presupuesto-obras.vercel.app" class="btn-o">🚀 Crear cuenta gratis</a>
       <a href="#servicios" class="btn-g">Ver servicios ↓</a>
     </div>
     <div class="stats">
@@ -284,7 +287,7 @@ footer{padding:60px 24px 40px;background:#080a0f}
             <li>Export PDF y Excel ilimitado</li>
             <li>Soporte prioritario por WhatsApp</li>
           </ul>
-          <a href="https://app.jemetrados.com" class="btn-plan">Suscribirme ahora</a>
+          <a href="https://presupuesto-obras.vercel.app" class="btn-plan">Suscribirme ahora</a>
         </div>
         <div class="plan dest">
           <div class="plan-badge">⭐ Ahorra 30%</div>
@@ -298,7 +301,7 @@ footer{padding:60px 24px 40px;background:#080a0f}
             <li>Export PDF y Excel ilimitado</li>
             <li>Soporte prioritario por WhatsApp</li>
           </ul>
-          <a href="https://app.jemetrados.com" class="btn-plan">Suscribirme ahora</a>
+          <a href="https://presupuesto-obras.vercel.app" class="btn-plan">Suscribirme ahora</a>
         </div>
       </div>
     </div>
@@ -337,7 +340,7 @@ footer{padding:60px 24px 40px;background:#080a0f}
   <div class="wrap" style="text-align:center">
     <h2>Empieza hoy — tu primer proyecto es gratis</h2>
     <p style="color:rgba(255,255,255,.7);font-size:17px;margin:16px auto 36px;max-width:500px">Sin tarjeta requerida. Acceso inmediato al sistema completo con todos los módulos.</p>
-    <a href="https://app.jemetrados.com" class="btn-o" style="font-size:16px;padding:16px 40px">🚀 Crear cuenta gratis</a>
+    <a href="https://presupuesto-obras.vercel.app" class="btn-o" style="font-size:16px;padding:16px 40px">🚀 Crear cuenta gratis</a>
     <p style="color:var(--muted);font-size:12px;margin-top:16px">Usuario de prueba: demo@jemetrados.com / demo1234</p>
   </div>
 </section>
@@ -345,32 +348,44 @@ footer{padding:60px 24px 40px;background:#080a0f}
 <!-- LIBRO DE RECLAMACIONES -->
 <section class="sec" id="reclamaciones">
   <div class="wrap">
-    <div class="tag">📚 Libro de Reclamaciones</div>
+    <div class="tag">📚 Libro de Reclamaciones Virtual</div>
     <h2>Libro de Reclamaciones</h2>
-    <p class="sub">Conforme al Código de Protección y Defensa del Consumidor (Ley N° 29571) y los lineamientos de INDECOPI.</p>
+    <p class="sub">Conforme al Código de Protección y Defensa del Consumidor (Ley N° 29571), D.S. N° 011-2011-PCM y los lineamientos de INDECOPI. Respuesta máxima: 30 días calendario.</p>
     <div class="libro">
       <h3>📋 Registra tu queja o reclamo</h3>
-      <p>JE Metrados Edificaciones — RUC 10742201053. Tu reclamo será atendido en un plazo máximo de 15 días hábiles.</p>
+      <p><strong style="color:#fff">Proveedor:</strong> JE Metrados Edificaciones · RUC 10742201053 · Jr. Los Andes s/n, Huancayo, Junín, Perú · info@jemetrados.com · +51 973 700 101</p>
+      <p style="margin-top:10px;font-size:12px">⚠️ Al enviar este formulario recibirás un <strong style="color:var(--naranja)">código de reclamo</strong> a tu correo. Guárdalo para seguimiento. La empresa responderá en un plazo máximo de <strong style="color:#fff">30 días calendario</strong>.</p>
+      <div style="margin:20px 0 16px;border-top:1px solid var(--border);padding-top:16px">
+        <p style="font-size:11px;font-weight:700;color:var(--naranja);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">Datos del consumidor</p>
+      </div>
       <div class="fg-2">
         <div class="fg"><label>Nombre completo *</label><input type="text" id="r-nombre" placeholder="Tu nombre completo"></div>
-        <div class="fg"><label>DNI / RUC *</label><input type="text" id="r-dni" placeholder="12345678"></div>
+        <div class="fg"><label>DNI / CE / Pasaporte *</label><input type="text" id="r-dni" placeholder="12345678"></div>
       </div>
       <div class="fg-2">
         <div class="fg"><label>Correo electrónico *</label><input type="email" id="r-email" placeholder="tu@email.com"></div>
-        <div class="fg"><label>Teléfono</label><input type="tel" id="r-tel" placeholder="+51 999 000 000"></div>
+        <div class="fg"><label>Teléfono *</label><input type="tel" id="r-tel" placeholder="+51 999 000 000"></div>
       </div>
-      <div class="fg">
-        <label>Tipo *</label>
-        <select id="r-tipo">
-          <option value="">Selecciona el tipo...</option>
-          <option value="queja">Queja (disconformidad con la atención)</option>
-          <option value="reclamo">Reclamo (disconformidad con el producto/servicio)</option>
-        </select>
+      <div class="fg"><label>Domicilio *</label><input type="text" id="r-domicilio" placeholder="Av. ejemplo 123, ciudad, departamento"></div>
+      <div style="margin:20px 0 16px;border-top:1px solid var(--border);padding-top:16px">
+        <p style="font-size:11px;font-weight:700;color:var(--naranja);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">Detalle del reclamo</p>
       </div>
-      <div class="fg"><label>Descripción del reclamo *</label><textarea id="r-desc" placeholder="Describe detalladamente tu queja o reclamo..."></textarea></div>
-      <div class="fg"><label>¿Qué solución esperas?</label><textarea id="r-sol" placeholder="Describe qué solución propones..." style="min-height:70px"></textarea></div>
-      <button class="btn-rec" onclick="enviarReclamo()">📨 Enviar reclamo</button>
-      <div class="msg-ok" id="msg-ok">✅ Tu reclamo ha sido registrado. Recibirás respuesta en los próximos 15 días hábiles a tu correo electrónico.</div>
+      <div class="fg-2">
+        <div class="fg">
+          <label>Tipo de requerimiento *</label>
+          <select id="r-tipo">
+            <option value="">Selecciona...</option>
+            <option value="Reclamo">Reclamo (disconformidad con producto/servicio)</option>
+            <option value="Queja">Queja (mala atención o trato inadecuado)</option>
+          </select>
+        </div>
+        <div class="fg"><label>Monto reclamado (S/.) si aplica</label><input type="number" id="r-monto" placeholder="0.00" min="0" step="0.01"></div>
+      </div>
+      <div class="fg"><label>Producto o servicio involucrado *</label><input type="text" id="r-producto" placeholder="Ej: Análisis IA de planos — Plan Mensual S/. 300"></div>
+      <div class="fg"><label>Descripción detallada *</label><textarea id="r-desc" placeholder="Describe detalladamente tu queja o reclamo: qué ocurrió, cuándo y cómo afecta..."></textarea></div>
+      <div class="fg"><label>Solución esperada *</label><textarea id="r-sol" placeholder="¿Qué solución esperas? (devolución, reemplazo, mejor atención, etc.)" style="min-height:70px"></textarea></div>
+      <button class="btn-rec" onclick="enviarReclamo()">📨 Registrar reclamo y obtener código</button>
+      <div class="msg-ok" id="msg-ok"></div>
     </div>
   </div>
 </section>
@@ -381,18 +396,76 @@ footer{padding:60px 24px 40px;background:#080a0f}
     <div class="tag">Legal</div>
     <h2>Términos y Condiciones</h2>
     <div class="tc">
-      <h3>1. Descripción del servicio</h3>
-      <p>PresupuestOS es un software de elaboración de presupuestos de obras civiles desarrollado y operado por JE Metrados Edificaciones (RUC 10742201053), con sede en Junín, Perú.</p>
-      <h3>2. Precios y pagos</h3>
-      <p>El software es gratuito para uso manual. El análisis IA de planos tiene un costo según la tabla publicada en este sitio, en Soles (S/.) incluyendo IGV. Los pagos se procesan de forma segura a través de Culqi.</p>
-      <h3>3. Política de devoluciones</h3>
-      <p>El análisis IA se ejecuta de forma inmediata al pago, por lo que no se realizan reembolsos una vez procesado el servicio. En caso de error técnico imputable al sistema, el usuario puede solicitar un nuevo análisis sin costo adicional contactando a info@jemetrados.com dentro de las 24 horas siguientes al pago.</p>
-      <h3>4. Privacidad de datos</h3>
-      <p>Los planos y documentos subidos son de exclusiva propiedad del usuario y no serán compartidos con terceros. Los datos de pago son procesados por Culqi y no se almacenan en nuestros servidores.</p>
-      <h3>5. Limitación de responsabilidad</h3>
-      <p>Los presupuestos generados son referenciales y no reemplazan el criterio profesional de un ingeniero civil colegiado. JE Metrados Edificaciones no se responsabiliza por decisiones tomadas exclusivamente en base a los resultados del software.</p>
-      <h3>6. Ley aplicable</h3>
-      <p>Estos términos se rigen por las leyes de la República del Perú, incluyendo la Ley N° 29571 — Código de Protección y Defensa del Consumidor. Cualquier disputa será resuelta en los tribunales de Huancayo, Junín.</p>
+      <h3>1. Información general del comercio</h3>
+      <p><strong style="color:#fff">Razón Social:</strong> JE Metrados Edificaciones<br>
+      <strong style="color:#fff">RUC:</strong> 10742201053<br>
+      <strong style="color:#fff">Dirección:</strong> Jr. Los Andes s/n, Huancayo, Junín, Perú<br>
+      <strong style="color:#fff">Teléfono:</strong> +51 973 700 101<br>
+      <strong style="color:#fff">Correo:</strong> info@jemetrados.com<br>
+      <strong style="color:#fff">Horario de atención:</strong> Lunes a viernes, 9:00 a.m. – 6:00 p.m. (hora Perú)</p>
+
+      <h3>2. Aceptación de términos</h3>
+      <p>El uso de la plataforma PresupuestOS (https://app.jemetrados.com) implica la aceptación plena de los presentes Términos y Condiciones. JE Metrados Edificaciones se reserva el derecho de actualizar estos términos en cualquier momento, notificando a los usuarios registrados mediante correo electrónico o aviso en la plataforma.</p>
+
+      <h3>3. Registro y cuenta de usuario</h3>
+      <p>Para utilizar los servicios de pago, el usuario debe registrarse proporcionando datos verídicos y actualizados. El uso de la plataforma está dirigido a personas mayores de 18 años o con autorización de un tutor legal. Es responsabilidad exclusiva del usuario mantener la confidencialidad de sus credenciales de acceso. Cualquier uso no autorizado de la cuenta será responsabilidad del titular registrado.</p>
+
+      <h3>4. Descripción de productos y servicios</h3>
+      <p>PresupuestOS es un software SaaS de elaboración de presupuestos de obras civiles que ofrece: módulos gratuitos de metrado manual (movimiento de tierras, cimentaciones, estructuras, arquitectura e instalaciones), análisis automático de planos mediante Inteligencia Artificial (servicio de pago por proyecto), exportación de presupuestos en PDF y Excel, y planes de suscripción mensual y anual con análisis IA ilimitado. La disponibilidad del servicio de IA puede verse afectada por mantenimientos programados, los cuales serán notificados con anticipación.</p>
+
+      <h3>5. Precios y formas de pago</h3>
+      <p>Todos los precios se expresan en Soles peruanos (S/.) e incluyen IGV. Los métodos de pago aceptados son: tarjetas de débito y crédito Visa y Mastercard, y billeteras digitales disponibles en la plataforma Culqi. La seguridad de los datos de pago está garantizada por la pasarela Culqi bajo estándares PCI-DSS; JE Metrados Edificaciones no almacena datos de tarjetas en sus servidores. Los precios publicados pueden actualizarse; el precio vigente al momento del pago será el aplicado a la transacción.</p>
+
+      <h3>6. Proceso de compra</h3>
+      <p>Para adquirir el análisis IA: (1) el usuario crea o selecciona un proyecto, (2) sube los planos en PDF, (3) selecciona el plan correspondiente según pisos y área, (4) completa el pago en la pasarela segura, (5) la IA procesa los planos automáticamente. La confirmación del pedido se envía al correo registrado. JE Metrados Edificaciones puede cancelar una orden en caso de error técnico, indisponibilidad del servicio o pago no confirmado, notificando al usuario y gestionando el reembolso correspondiente.</p>
+
+      <h3>7. Entrega del servicio</h3>
+      <p>Al tratarse de un servicio digital, la entrega es inmediata una vez confirmado el pago. El resultado del análisis IA quedará disponible en la plataforma en un plazo estimado de 2 a 10 minutos. No aplican costos de envío físico.</p>
+
+      <h3>8. Protección de datos personales</h3>
+      <p>En cumplimiento de la Ley N° 29733 — Ley de Protección de Datos Personales del Perú, JE Metrados Edificaciones recopila únicamente los datos necesarios para la prestación del servicio (nombre, correo, documentos subidos). Los planos y archivos cargados son de exclusiva propiedad del usuario y no serán compartidos con terceros. El usuario puede solicitar la rectificación, cancelación u oposición al tratamiento de sus datos escribiendo a info@jemetrados.com.</p>
+
+      <h3>9. Propiedad intelectual</h3>
+      <p>Todo el contenido de la plataforma PresupuestOS y del sitio jemetrados.com (logotipos, diseño, código, textos, metodologías de cálculo) está protegido por derechos de autor y es propiedad de JE Metrados Edificaciones. Queda prohibida su reproducción, distribución o uso comercial sin autorización expresa y escrita.</p>
+
+      <h3>10. Limitación de responsabilidad</h3>
+      <p>Los presupuestos generados son referenciales y no reemplazan el criterio profesional de un ingeniero civil colegiado. JE Metrados Edificaciones no se responsabiliza por decisiones constructivas tomadas exclusivamente en base a los resultados del software. La empresa no se hace responsable por fallos técnicos derivados de terceros (proveedor de hosting, conectividad del usuario) ni por inexactitudes en planos subidos por el usuario.</p>
+
+      <h3>11. Legislación aplicable y resolución de conflictos</h3>
+      <p>Estos Términos y Condiciones se rigen por las leyes de la República del Perú, incluyendo la Ley N° 29571 — Código de Protección y Defensa del Consumidor. Cualquier disputa será resuelta primero mediante conciliación directa; de no llegarse a acuerdo, las partes se someten a la jurisdicción de los Juzgados de Huancayo, Junín, o ante INDECOPI según corresponda.</p>
+
+      <h3>12. Contacto y soporte</h3>
+      <p>Consultas y reclamos: info@jemetrados.com · WhatsApp +51 973 700 101 · Horario: lunes a viernes 9:00 a.m. – 6:00 p.m. (hora Perú). Última actualización: junio 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEVOLUCIONES -->
+<section class="sec" id="devoluciones">
+  <div class="wrap" style="max-width:800px">
+    <div class="tag">Legal</div>
+    <h2>Política de Cambios y Devoluciones</h2>
+    <div class="tc">
+      <h3>1. Introducción</h3>
+      <p>La presente política establece las condiciones para solicitudes de devolución o compensación de los servicios adquiridos a través de PresupuestOS (https://app.jemetrados.com), operado por JE Metrados Edificaciones, RUC 10742201053. Aplica a todos los servicios de pago: análisis IA por proyecto y planes de suscripción mensual o anual.</p>
+
+      <h3>2. Naturaleza del servicio y condiciones generales</h3>
+      <p>Al tratarse de servicios digitales de entrega inmediata, el análisis IA se ejecuta automáticamente al confirmarse el pago, por lo que no procede devolución una vez procesado el servicio correctamente. Los planes de suscripción pueden cancelarse en cualquier momento; la cancelación aplica al inicio del siguiente período de facturación y no genera reembolso proporcional del período en curso.</p>
+
+      <h3>3. Casos en los que sí procede compensación o reembolso</h3>
+      <p>Se considerará un reembolso total o análisis de reemplazo sin costo en los siguientes casos: (a) error técnico imputable al sistema que impida la entrega del resultado, (b) cobro duplicado por la misma transacción, (c) pago procesado pero servicio no activado por fallo del sistema. El plazo para solicitar la compensación es de <strong style="color:#fff">48 horas</strong> desde la transacción.</p>
+
+      <h3>4. Proceso para solicitar devolución</h3>
+      <p>El usuario debe: (1) contactar a info@jemetrados.com o WhatsApp +51 973 700 101 dentro del plazo indicado, (2) indicar número de orden/transacción, correo registrado y descripción del problema, (3) adjuntar captura del error si aplica. JE Metrados Edificaciones evaluará la solicitud y responderá en un plazo máximo de <strong style="color:#fff">5 días hábiles</strong>.</p>
+
+      <h3>5. Opciones de compensación</h3>
+      <p>Según el caso evaluado, la compensación puede ser: reembolso total al método de pago original (plazo estimado 5–10 días hábiles según el banco), crédito en cuenta para un análisis equivalente, o nuevo análisis sin costo. La modalidad será acordada con el usuario según las circunstancias.</p>
+
+      <h3>6. Excepciones</h3>
+      <p>No procede devolución cuando: el análisis fue entregado correctamente y el usuario no obtuvo el resultado esperado por limitaciones del plano subido (baja resolución, planos incompletos o sin escalas), el usuario proporcionó datos incorrectos al momento de la compra, o la solicitud se realiza fuera del plazo establecido.</p>
+
+      <h3>7. Contacto</h3>
+      <p>Para cualquier consulta sobre esta política: info@jemetrados.com · +51 973 700 101 · Lunes a viernes 9:00 a.m. – 6:00 p.m. (hora Perú).</p>
     </div>
   </div>
 </section>
@@ -412,13 +485,13 @@ footer{padding:60px 24px 40px;background:#080a0f}
         <h4>Producto</h4>
         <a href="#servicios">Servicios</a>
         <a href="#precios">Precios</a>
-        <a href="https://app.jemetrados.com">Iniciar sesión</a>
-        <a href="https://app.jemetrados.com">Crear cuenta gratis</a>
+        <a href="https://presupuesto-obras.vercel.app">Iniciar sesión</a>
+        <a href="https://presupuesto-obras.vercel.app">Crear cuenta gratis</a>
       </div>
       <div>
         <h4>Legal</h4>
         <a href="#terminos">Términos y condiciones</a>
-        <a href="#terminos">Política de privacidad</a>
+        <a href="#devoluciones">Política de devoluciones</a>
         <a href="#reclamaciones">Libro de reclamaciones</a>
       </div>
       <div>
@@ -435,27 +508,68 @@ footer{padding:60px 24px 40px;background:#080a0f}
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
+// EmailJS — reemplaza estos IDs con los tuyos de emailjs.com
+var EMAILJS_PUBLIC_KEY = 'p46eP-VpW7Kc7SrrT';
+var EMAILJS_SERVICE_ID = 'service_6dapsd8';
+var EMAILJS_TEMPLATE_ID = 'ojrtfnr';
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+function generarCodigo() {
+  var fecha = new Date();
+  var y = fecha.getFullYear();
+  var m = String(fecha.getMonth()+1).padStart(2,'0');
+  var d = String(fecha.getDate()).padStart(2,'0');
+  var rand = Math.floor(Math.random()*9000)+1000;
+  return 'REC-' + y + m + d + '-' + rand;
+}
+
 function enviarReclamo() {
-  var nombre = document.getElementById('r-nombre').value;
-  var dni = document.getElementById('r-dni').value;
-  var email = document.getElementById('r-email').value;
-  var tipo = document.getElementById('r-tipo').value;
-  var desc = document.getElementById('r-desc').value;
-  if (!nombre || !dni || !email || !tipo || !desc) {
+  var nombre   = document.getElementById('r-nombre').value.trim();
+  var dni      = document.getElementById('r-dni').value.trim();
+  var email    = document.getElementById('r-email').value.trim();
+  var tel      = document.getElementById('r-tel').value.trim();
+  var domicilio= document.getElementById('r-domicilio').value.trim();
+  var tipo     = document.getElementById('r-tipo').value;
+  var monto    = document.getElementById('r-monto').value.trim();
+  var producto = document.getElementById('r-producto').value.trim();
+  var desc     = document.getElementById('r-desc').value.trim();
+  var sol      = document.getElementById('r-sol').value.trim();
+
+  if (!nombre||!dni||!email||!tel||!domicilio||!tipo||!producto||!desc||!sol) {
     alert('Por favor completa todos los campos obligatorios (*)');
     return;
   }
-  var reclamos = JSON.parse(localStorage.getItem('reclamos') || '[]');
-  reclamos.push({nombre:nombre,dni:dni,email:email,tipo:tipo,desc:desc,fecha:new Date().toISOString()});
-  localStorage.setItem('reclamos', JSON.stringify(reclamos));
-  document.getElementById('msg-ok').style.display = 'block';
-  document.getElementById('r-nombre').value = '';
-  document.getElementById('r-dni').value = '';
-  document.getElementById('r-email').value = '';
-  document.getElementById('r-tipo').value = '';
-  document.getElementById('r-desc').value = '';
-  document.getElementById('r-sol').value = '';
+
+  var codigo = generarCodigo();
+  var fecha  = new Date().toLocaleString('es-PE', {timeZone:'America/Lima'});
+
+  var btn = document.querySelector('.btn-rec');
+  btn.disabled = true;
+  btn.textContent = '⏳ Enviando...';
+
+  var params = {
+    codigo: codigo, fecha: fecha,
+    nombre: nombre, dni: dni, email: email, tel: tel,
+    domicilio: domicilio, tipo: tipo,
+    monto: monto || 'No especificado',
+    producto: producto, desc: desc, sol: sol
+  };
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+    .then(function() {
+      var msgEl = document.getElementById('msg-ok');
+      msgEl.style.display = 'block';
+      msgEl.innerHTML = '✅ Reclamo registrado correctamente.<br><strong>Código de reclamo: ' + codigo + '</strong><br>Guarda este código para seguimiento. Recibirás confirmación en <strong>' + email + '</strong>. Plazo de respuesta: 30 días calendario.';
+      btn.disabled = false;
+      btn.textContent = '📨 Registrar reclamo y obtener código';
+      ['r-nombre','r-dni','r-email','r-tel','r-domicilio','r-tipo','r-monto','r-producto','r-desc','r-sol'].forEach(function(id){ document.getElementById(id).value=''; });
+    }, function(err) {
+      alert('Error al enviar. Por favor escribe directamente a info@jemetrados.com indicando tu reclamo. Error: ' + JSON.stringify(err));
+      btn.disabled = false;
+      btn.textContent = '📨 Registrar reclamo y obtener código';
+    });
 }
 </script>
 </body>
