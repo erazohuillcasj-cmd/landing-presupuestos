@@ -71,28 +71,43 @@ h2{font-size:clamp(24px,4vw,40px);font-weight:800;line-height:1.2;margin-bottom:
 .paso h3{font-size:15px;font-weight:700;margin-bottom:8px}
 .paso p{font-size:13px;color:var(--muted);line-height:1.6}
 
-/* TABLA */
-.tabla{width:100%;border-collapse:collapse;margin-top:40px;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.3)}
-.tabla th{background:var(--azul);color:#fff;padding:14px 16px;text-align:center;font-size:13px;font-weight:600}
-.tabla td{padding:14px 16px;text-align:center;font-size:14px;border-bottom:1px solid var(--border);color:var(--muted)}
+/* TABLA PRECIOS */
+.tabla-wrap{overflow-x:auto;margin-top:40px}
+.tabla{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.3);min-width:700px}
+.tabla th{background:var(--azul);color:#fff;padding:14px 12px;text-align:center;font-size:12px;font-weight:700}
+.tabla th:first-child{text-align:left;padding-left:20px}
+.tabla td{padding:13px 12px;text-align:center;font-size:13px;border-bottom:1px solid var(--border);color:var(--muted)}
+.tabla td:first-child{text-align:left;padding-left:20px;font-weight:600;color:#fff;background:rgba(26,58,107,.2)}
 .tabla tr:last-child td{border-bottom:none}
 .tabla tr:hover td{background:rgba(255,255,255,.02)}
-.p{font-weight:800;color:var(--naranja)!important;font-size:16px}
-.fl{font-weight:600;color:#fff!important;background:rgba(26,58,107,.3)}
+.p{font-weight:800;color:var(--naranja)!important;font-size:15px}
+.pdfs-tag{display:inline-block;font-size:10px;font-weight:600;color:rgba(245,158,11,.8);margin-top:2px}
+.igv-nota{font-size:12px;color:var(--muted);margin-top:16px;text-align:right}
+.igv-nota strong{color:var(--naranja)}
 
-/* PLANES */
+/* PDF EXTRA */
+.pdf-extra{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:32px}
+.pdf-extra-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.pdf-extra-item .pisos{font-size:12px;color:var(--muted);margin-bottom:6px}
+.pdf-extra-item .monto{font-size:20px;font-weight:800;color:var(--accent)}
+.pdf-extra-item .unit{font-size:11px;color:var(--muted)}
+
+/* PLANES PROJEX */
 .planes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
-.plan{background:var(--card);border:2px solid var(--border);border-radius:20px;padding:36px;position:relative}
+.plan{background:var(--card);border:2px solid var(--border);border-radius:20px;padding:32px;position:relative;transition:border-color .2s,transform .2s}
+.plan:hover{transform:translateY(-4px)}
 .plan.dest{border-color:var(--naranja)}
 .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;padding:4px 16px;border-radius:100px;font-size:11px;font-weight:700;white-space:nowrap}
 .plan h3{font-size:18px;font-weight:700;margin-bottom:6px}
-.plan-p{font-size:44px;font-weight:800;margin:16px 0 4px}
-.plan-per{font-size:13px;color:var(--muted);margin-bottom:24px}
-.plan ul{list-style:none;margin-bottom:28px}
-.plan ul li{padding:8px 0;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.plan-p{font-size:40px;font-weight:800;margin:12px 0 2px;color:#fff}
+.plan-per{font-size:12px;color:var(--muted);margin-bottom:6px}
+.plan-pdf-price{font-size:13px;color:var(--accent);margin-bottom:20px;font-weight:600}
+.plan ul{list-style:none;margin-bottom:24px}
+.plan ul li{padding:7px 0;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
 .plan ul li:last-child{border-bottom:none}
 .plan ul li::before{content:"✓";color:var(--naranja);font-weight:700;flex-shrink:0}
-.btn-plan{display:block;text-align:center;background:var(--naranja);color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn-plan{display:block;text-align:center;background:var(--naranja);color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:opacity .2s}
+.btn-plan:hover{opacity:.9}
 
 /* CONTACTO */
 .cont-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:40px}
@@ -156,12 +171,12 @@ footer{padding:60px 24px 40px;background:#080a0f}
   <div class="nav-links">
     <a href="#servicios">Servicios</a>
     <a href="#precios">Precios</a>
+    <a href="#planes">Planes</a>
     <a href="#contacto">Contacto</a>
     <a href="#terminos">T&amp;C</a>
     <a href="#devoluciones">Devoluciones</a>
     <a href="#reclamaciones">Reclamaciones</a>
   </div>
-
   <a href="https://app.jemetrados.com" class="nav-cta">Iniciar sesión →</a>
 </nav>
 
@@ -189,15 +204,15 @@ footer{padding:60px 24px 40px;background:#080a0f}
 <section class="sec" id="servicios">
   <div class="wrap">
     <div class="tag">Nuestros servicios</div>
-    <h2>5 servicios para tu proyecto de construcción</h2>
-    <p class="sub">Desde el análisis de planos con IA hasta el presupuesto final en PDF y Excel.</p>
+    <h2>Todo lo que necesitas para tu obra</h2>
+    <p class="sub">Desde el análisis de planos con IA hasta el presupuesto final en PDF.</p>
     <div class="grid-srv">
       <div class="srv">
         <div class="srv-img">🤖</div>
         <div class="srv-body">
           <h3>Análisis IA de Planos</h3>
-          <p>Sube tus planos PDF o imágenes y la IA extrae automáticamente todos los metrados: columnas, vigas, muros, pisos, instalaciones y más según NTE E.060.</p>
-          <div class="srv-precio">Desde S/. 59 <span>/ proyecto</span></div>
+          <p>Sube tus planos PDF o imágenes y la IA extrae automáticamente todos los metrados: columnas, vigas, muros, pisos, instalaciones y más. Derivaciones automáticas según NTE.</p>
+          <div class="srv-precio">Desde S/. 59 <span>/ proyecto · + IGV</span></div>
         </div>
       </div>
       <div class="srv">
@@ -211,8 +226,8 @@ footer{padding:60px 24px 40px;background:#080a0f}
       <div class="srv">
         <div class="srv-img">📊</div>
         <div class="srv-body">
-          <h3>Presupuesto PDF y Excel</h3>
-          <p>Genera cotizaciones profesionales con logo de tu empresa, precios unitarios por zona del Perú, IGV y resumen financiero completo.</p>
+          <h3>Presupuesto PDF</h3>
+          <p>Genera cotizaciones profesionales con logo de tu empresa, precios unitarios por zona del Perú y resumen financiero completo.</p>
           <div class="srv-precio">Gratis <span>/ incluido</span></div>
         </div>
       </div>
@@ -225,11 +240,11 @@ footer{padding:60px 24px 40px;background:#080a0f}
         </div>
       </div>
       <div class="srv">
-        <div class="srv-img">📋</div>
+        <div class="srv-img">📦</div>
         <div class="srv-body">
-          <h3>Suscripción IA Ilimitada</h3>
-          <p>Analiza todos los proyectos que quieras con IA sin límite de uso. Ideal para ingenieros y empresas constructoras con múltiples proyectos al mes.</p>
-          <div class="srv-precio">S/. 300 <span>/ mes</span></div>
+          <h3>Planes ProjeX</h3>
+          <p>Compra PDFs en paquetes para múltiples proyectos. Sin vencimiento, sin límite por proyecto. Ideal para ingenieros con varios proyectos al mes.</p>
+          <div class="srv-precio">Desde S/. 469 <span>/ 30 PDFs · + IGV</span></div>
         </div>
       </div>
     </div>
@@ -244,8 +259,8 @@ footer{padding:60px 24px 40px;background:#080a0f}
     <div class="pasos">
       <div class="paso"><div class="paso-n">1</div><h3>Crea tu proyecto</h3><p>Ingresa nombre, ubicación, número de pisos y área total del proyecto.</p></div>
       <div class="paso"><div class="paso-n">2</div><h3>Sube tus planos</h3><p>Carga los planos en PDF o imagen. Puedes subir varios archivos a la vez.</p></div>
-      <div class="paso"><div class="paso-n">3</div><h3>La IA analiza todo</h3><p>Nuestra IA extrae columnas, vigas, muros, pisos, instalaciones y más.</p></div>
-      <div class="paso"><div class="paso-n">4</div><h3>Descarga tu presupuesto</h3><p>Exporta en PDF o Excel con todas las partidas y precios unitarios.</p></div>
+      <div class="paso"><div class="paso-n">3</div><h3>La IA analiza todo</h3><p>Nuestra IA extrae columnas, vigas, muros, pisos, instalaciones y deriva automáticamente los elementos faltantes según NTE.</p></div>
+      <div class="paso"><div class="paso-n">4</div><h3>Descarga tu presupuesto</h3><p>Exporta en PDF con todas las partidas y precios unitarios.</p></div>
     </div>
   </div>
 </section>
@@ -253,63 +268,165 @@ footer{padding:60px 24px 40px;background:#080a0f}
 <!-- PRECIOS -->
 <section class="sec" id="precios">
   <div class="wrap">
-    <div class="tag">Precios</div>
+    <div class="tag">Precios por proyecto</div>
     <h2>Software gratuito. Paga solo por el análisis IA.</h2>
     <p class="sub">Todos los módulos de presupuesto manual son completamente gratuitos. Solo pagas cuando usas la IA.</p>
-    <table class="tabla">
-      <thead>
-        <tr>
-          <th>Pisos del proyecto</th>
-          <th>Hasta 100 m²</th>
-          <th>100 – 200 m²</th>
-          <th>200 – 400 m²</th>
-          <th>400 m²+</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="fl">1 piso</td><td class="p">S/. 59</td><td class="p">S/. 89</td><td class="p">S/. 119</td><td class="p">S/. 149</td></tr>
-        <tr><td class="fl">2 pisos</td><td class="p">S/. 89</td><td class="p">S/. 119</td><td class="p">S/. 149</td><td class="p">S/. 199</td></tr>
-        <tr><td class="fl">3 – 4 pisos</td><td class="p">S/. 119</td><td class="p">S/. 149</td><td class="p">S/. 199</td><td class="p">S/. 249</td></tr>
-        <tr><td class="fl">5+ pisos</td><td class="p">S/. 149</td><td class="p">S/. 199</td><td class="p">S/. 249</td><td class="p">S/. 299</td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:48px">
-      <div class="tag">Planes IA ilimitada</div>
-      <div class="planes">
-        <div class="plan">
-          <h3>Plan Mensual</h3>
-          <p style="color:var(--muted);font-size:13px">Análisis IA ilimitados</p>
-          <div class="plan-p">S/. 300</div>
-          <div class="plan-per">/mes · cancela cuando quieras</div>
-          <ul>
-            <li>Análisis IA sin límite</li>
-            <li>Todos los módulos incluidos</li>
-            <li>Export PDF y Excel ilimitado</li>
-            <li>Soporte prioritario por WhatsApp</li>
-          </ul>
-          <a href="https://app.jemetrados.com" class="btn-plan">Suscribirme ahora</a>
-        </div>
-        <div class="plan dest">
-          <div class="plan-badge">⭐ Ahorra 30%</div>
-          <h3>Plan Anual</h3>
-          <p style="color:rgba(255,255,255,.6);font-size:13px">La mejor opción para tu negocio</p>
-          <div class="plan-p">S/. 2,500</div>
-          <div class="plan-per">/año · equivale a S/. 208/mes</div>
-          <ul>
-            <li>Análisis IA sin límite</li>
-            <li>Todos los módulos incluidos</li>
-            <li>Export PDF y Excel ilimitado</li>
-            <li>Soporte prioritario por WhatsApp</li>
-          </ul>
-          <a href="https://app.jemetrados.com" class="btn-plan">Suscribirme ahora</a>
-        </div>
+
+    <div class="tabla-wrap">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Pisos del proyecto</th>
+            <th>Hasta 100 m²</th>
+            <th>101 – 200 m²</th>
+            <th>201 – 400 m²</th>
+            <th>400 m²+</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 piso</td>
+            <td><span class="p">S/. 59</span><br><span class="pdfs-tag">5 PDFs incluidos</span></td>
+            <td><span class="p">S/. 89</span><br><span class="pdfs-tag">6 PDFs incluidos</span></td>
+            <td><span class="p">S/. 119</span><br><span class="pdfs-tag">7 PDFs incluidos</span></td>
+            <td><span class="p">S/. 149</span><br><span class="pdfs-tag">8 PDFs incluidos</span></td>
+          </tr>
+          <tr>
+            <td>2 pisos</td>
+            <td><span class="p">S/. 89</span><br><span class="pdfs-tag">6 PDFs incluidos</span></td>
+            <td><span class="p">S/. 119</span><br><span class="pdfs-tag">8 PDFs incluidos</span></td>
+            <td><span class="p">S/. 149</span><br><span class="pdfs-tag">10 PDFs incluidos</span></td>
+            <td><span class="p">S/. 199</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
+          </tr>
+          <tr>
+            <td>3 – 4 pisos</td>
+            <td><span class="p">S/. 139</span><br><span class="pdfs-tag">8 PDFs incluidos</span></td>
+            <td><span class="p">S/. 179</span><br><span class="pdfs-tag">10 PDFs incluidos</span></td>
+            <td><span class="p">S/. 229</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
+            <td><span class="p">S/. 279</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
+          </tr>
+          <tr>
+            <td>5 – 6 pisos</td>
+            <td><span class="p">S/. 199</span><br><span class="pdfs-tag">10 PDFs incluidos</span></td>
+            <td><span class="p">S/. 259</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
+            <td><span class="p">S/. 319</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
+            <td><span class="p">S/. 389</span><br><span class="pdfs-tag">16 PDFs incluidos</span></td>
+          </tr>
+          <tr>
+            <td>7 – 8 pisos</td>
+            <td><span class="p">S/. 269</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
+            <td><span class="p">S/. 339</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
+            <td><span class="p">S/. 419</span><br><span class="pdfs-tag">16 PDFs incluidos</span></td>
+            <td><span class="p">S/. 499</span><br><span class="pdfs-tag">18 PDFs incluidos</span></td>
+          </tr>
+          <tr>
+            <td>9+ pisos</td>
+            <td><span class="p">S/. 349</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
+            <td><span class="p">S/. 429</span><br><span class="pdfs-tag">16 PDFs incluidos</span></td>
+            <td><span class="p">S/. 519</span><br><span class="pdfs-tag">18 PDFs incluidos</span></td>
+            <td><span class="p">S/. 619</span><br><span class="pdfs-tag">20 PDFs incluidos</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="igv-nota">* Precios sin IGV. <strong>Se agrega IGV 18% al momento del pago.</strong> · PDF adicional si excedes el límite: desde S/. 10/PDF + IGV</p>
+
+    <!-- PDF EXTRA -->
+    <div style="margin-top:40px">
+      <div class="tag">PDF adicional si excedes el límite</div>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:16px">Si subes más PDFs de los incluidos en tu plan, se cobra por cada PDF adicional:</p>
+      <div class="pdf-extra">
+        <div class="pdf-extra-item"><div class="pisos">1 – 2 pisos</div><div class="monto">S/. 10</div><div class="unit">/ PDF adicional + IGV</div></div>
+        <div class="pdf-extra-item"><div class="pisos">3 – 6 pisos</div><div class="monto">S/. 15</div><div class="unit">/ PDF adicional + IGV</div></div>
+        <div class="pdf-extra-item"><div class="pisos">7 – 8 pisos</div><div class="monto">S/. 20</div><div class="unit">/ PDF adicional + IGV</div></div>
+        <div class="pdf-extra-item"><div class="pisos">9+ pisos</div><div class="monto">S/. 25</div><div class="unit">/ PDF adicional + IGV</div></div>
+      </div>
+    </div>
+
+    <!-- ADVERTENCIA -->
+    <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:20px;margin-top:32px">
+      <div style="font-size:13px;font-weight:700;color:#ef4444;margin-bottom:8px">⚠ Importante sobre la detección de la IA</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7">
+        Si la IA detecta en tus planos <strong style="color:#fff">más pisos o mayor área</strong> de lo declarado al crear el proyecto, el resultado quedará bloqueado y deberás pagar la diferencia al plan correspondiente. Te recomendamos declarar correctamente los datos de tu proyecto antes de pagar.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES PROJEX -->
+<section class="sec bg-card" id="planes">
+  <div class="wrap">
+    <div class="tag">Planes ProjeX</div>
+    <h2>Para ingenieros con múltiples proyectos</h2>
+    <p class="sub">Compra PDFs en paquete. Úsalos en cualquier proyecto, sin vencimiento y sin restricciones.</p>
+
+    <div class="planes">
+      <!-- PROJEPRO -->
+      <div class="plan">
+        <h3>🏗 ProjePro</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px">Para ingenieros activos</p>
+        <div class="plan-p">S/. 469</div>
+        <div class="plan-per">+ IGV · 30 PDFs acumulables</div>
+        <div class="plan-pdf-price">≈ S/. 18/PDF con IGV</div>
+        <ul>
+          <li>30 PDFs para cualquier proyecto</li>
+          <li>Sin vencimiento</li>
+          <li>Sin límite por proyecto</li>
+          <li>PDFs acumulables si compras más</li>
+          <li>Todos los módulos incluidos</li>
+        </ul>
+        <a href="https://app.jemetrados.com" class="btn-plan">Registrarse y adquirir →</a>
+      </div>
+
+      <!-- PROJEMAX -->
+      <div class="plan dest">
+        <div class="plan-badge">⭐ Más popular</div>
+        <h3>🌆 ProjeMax</h3>
+        <p style="color:rgba(255,255,255,.6);font-size:13px;margin-bottom:8px">Para estudios de ingeniería</p>
+        <div class="plan-p">S/. 999</div>
+        <div class="plan-per">+ IGV · 50 PDFs acumulables</div>
+        <div class="plan-pdf-price">≈ S/. 24/PDF con IGV</div>
+        <ul>
+          <li>50 PDFs para cualquier proyecto</li>
+          <li>Sin vencimiento</li>
+          <li>Sin límite por proyecto</li>
+          <li>PDFs acumulables si compras más</li>
+          <li>Todos los módulos incluidos</li>
+        </ul>
+        <a href="https://app.jemetrados.com" class="btn-plan">Registrarse y adquirir →</a>
+      </div>
+
+      <!-- PROJEPRIME -->
+      <div class="plan">
+        <h3>🏙 ProjePrime</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px">Para empresas constructoras</p>
+        <div class="plan-p">S/. 1,799</div>
+        <div class="plan-per">+ IGV · 80 PDFs acumulables</div>
+        <div class="plan-pdf-price">≈ S/. 27/PDF con IGV</div>
+        <ul>
+          <li>80 PDFs para cualquier proyecto</li>
+          <li>Sin vencimiento</li>
+          <li>Sin límite por proyecto</li>
+          <li>PDFs acumulables si compras más</li>
+          <li>Todos los módulos incluidos</li>
+        </ul>
+        <a href="https://app.jemetrados.com" class="btn-plan">Registrarse y adquirir →</a>
+      </div>
+    </div>
+
+    <div style="background:rgba(79,158,255,0.08);border:1px solid rgba(79,158,255,0.2);border-radius:12px;padding:20px;margin-top:32px;text-align:center">
+      <div style="font-size:14px;font-weight:600;color:var(--accent);margin-bottom:6px">💡 ¿Cómo funcionan los planes?</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7">
+        Compras el plan → recibes tus PDFs → los usas en cualquier proyecto sin restricciones.<br>
+        Proyecto 1: 6 PDFs → Proyecto 2: 8 PDFs → Proyecto 3: 5 PDFs → y así hasta agotar tu saldo.<br>
+        <strong style="color:#fff">Los PDFs no vencen y se acumulan si recargas tu plan.</strong>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<section class="sec bg-card" id="contacto">
+<section class="sec" id="contacto">
   <div class="wrap">
     <div class="tag">Contacto</div>
     <h2>¿Tienes alguna pregunta?</h2>
@@ -339,9 +456,8 @@ footer{padding:60px 24px 40px;background:#080a0f}
 <section class="cta">
   <div class="wrap" style="text-align:center">
     <h2>Empieza hoy — tu primer proyecto es gratis</h2>
-    <p style="color:rgba(255,255,255,.7);font-size:17px;margin:16px auto 36px;max-width:500px">Sin tarjeta requerida. Acceso inmediato al sistema completo con todos los módulos.</p>
+    <p style="color:rgba(255,255,255,.7);font-size:17px;margin:16px auto 36px;max-width:500px">Sin tarjeta requerida. Acceso inmediato al sistema completo con todos los módulos de metrado manual.</p>
     <a href="https://app.jemetrados.com" class="btn-o" style="font-size:16px;padding:16px 40px">🚀 Crear cuenta gratis</a>
-    <p style="color:var(--muted);font-size:12px;margin-top:16px">Usuario de prueba: demo@jemetrados.com / demo1234</p>
   </div>
 </section>
 
@@ -381,7 +497,7 @@ footer{padding:60px 24px 40px;background:#080a0f}
         </div>
         <div class="fg"><label>Monto reclamado (S/.) si aplica</label><input type="number" id="r-monto" placeholder="0.00" min="0" step="0.01"></div>
       </div>
-      <div class="fg"><label>Producto o servicio involucrado *</label><input type="text" id="r-producto" placeholder="Ej: Análisis IA de planos — Plan Mensual S/. 300"></div>
+      <div class="fg"><label>Producto o servicio involucrado *</label><input type="text" id="r-producto" placeholder="Ej: Análisis IA de planos — Plan ProjePro S/. 469"></div>
       <div class="fg"><label>Descripción detallada *</label><textarea id="r-desc" placeholder="Describe detalladamente tu queja o reclamo: qué ocurrió, cuándo y cómo afecta..."></textarea></div>
       <div class="fg"><label>Solución esperada *</label><textarea id="r-sol" placeholder="¿Qué solución esperas? (devolución, reemplazo, mejor atención, etc.)" style="min-height:70px"></textarea></div>
       <button class="btn-rec" onclick="enviarReclamo()">📨 Registrar reclamo y obtener código</button>
@@ -408,34 +524,28 @@ footer{padding:60px 24px 40px;background:#080a0f}
       <p>El uso de la plataforma PresupuestOS (https://app.jemetrados.com) implica la aceptación plena de los presentes Términos y Condiciones. JE Metrados Edificaciones se reserva el derecho de actualizar estos términos en cualquier momento, notificando a los usuarios registrados mediante correo electrónico o aviso en la plataforma.</p>
 
       <h3>3. Registro y cuenta de usuario</h3>
-      <p>Para utilizar los servicios de pago, el usuario debe registrarse proporcionando datos verídicos y actualizados. El uso de la plataforma está dirigido a personas mayores de 18 años o con autorización de un tutor legal. Es responsabilidad exclusiva del usuario mantener la confidencialidad de sus credenciales de acceso. Cualquier uso no autorizado de la cuenta será responsabilidad del titular registrado.</p>
+      <p>Para utilizar los servicios de pago, el usuario debe registrarse proporcionando datos verídicos y actualizados. El uso de la plataforma está dirigido a personas mayores de 18 años. La contraseña debe cumplir requisitos mínimos de seguridad (mínimo 8 caracteres, mayúscula, número y carácter especial). La cuenta es personal e intransferible y solo puede estar activa en un dispositivo a la vez.</p>
 
       <h3>4. Descripción de productos y servicios</h3>
-      <p>PresupuestOS es un software SaaS de elaboración de presupuestos de obras civiles que ofrece: módulos gratuitos de metrado manual (movimiento de tierras, cimentaciones, estructuras, arquitectura e instalaciones), análisis automático de planos mediante Inteligencia Artificial (servicio de pago por proyecto), exportación de presupuestos en PDF y Excel, y planes de suscripción mensual y anual con análisis IA ilimitado. La disponibilidad del servicio de IA puede verse afectada por mantenimientos programados, los cuales serán notificados con anticipación.</p>
+      <p>PresupuestOS es un software SaaS de elaboración de presupuestos de obras civiles que ofrece: módulos gratuitos de metrado manual, análisis automático de planos mediante IA (servicio de pago por proyecto o mediante planes ProjeX), y exportación de presupuestos en PDF. Los planes ProjeX otorgan PDFs acumulables sin vencimiento utilizables en cualquier proyecto.</p>
 
       <h3>5. Precios y formas de pago</h3>
-      <p>Todos los precios se expresan en Soles peruanos (S/.) e incluyen IGV. Los métodos de pago aceptados son: tarjetas de débito y crédito Visa y Mastercard, y billeteras digitales disponibles en la plataforma Culqi. La seguridad de los datos de pago está garantizada por la pasarela Culqi bajo estándares PCI-DSS; JE Metrados Edificaciones no almacena datos de tarjetas en sus servidores. Los precios publicados pueden actualizarse; el precio vigente al momento del pago será el aplicado a la transacción.</p>
+      <p>Todos los precios publicados son en Soles peruanos (S/.) sin IGV. Se agrega IGV del 18% al momento del cobro. Los métodos de pago aceptados incluyen Mercado Pago (tarjetas de débito y crédito, billeteras digitales). Los precios publicados pueden actualizarse; el precio vigente al momento del pago será el aplicado.</p>
 
-      <h3>6. Proceso de compra</h3>
-      <p>Para adquirir el análisis IA: (1) el usuario crea o selecciona un proyecto, (2) sube los planos en PDF, (3) selecciona el plan correspondiente según pisos y área, (4) completa el pago en la pasarela segura, (5) la IA procesa los planos automáticamente. La confirmación del pedido se envía al correo registrado. JE Metrados Edificaciones puede cancelar una orden en caso de error técnico, indisponibilidad del servicio o pago no confirmado, notificando al usuario y gestionando el reembolso correspondiente.</p>
+      <h3>6. Sistema de PDFs y cobro adicional</h3>
+      <p>Cada plan por proyecto incluye un número determinado de PDFs según pisos y área declarados. Si la IA detecta en los planos más pisos o una área mayor al 20% de lo declarado, el resultado quedará bloqueado hasta que el usuario pague la diferencia correspondiente al plan correcto. Si el usuario sube más PDFs de los incluidos, se cobrarán PDFs adicionales según la tarifa vigente.</p>
 
       <h3>7. Entrega del servicio</h3>
-      <p>Al tratarse de un servicio digital, la entrega es inmediata una vez confirmado el pago. El resultado del análisis IA quedará disponible en la plataforma en un plazo estimado de 2 a 10 minutos. No aplican costos de envío físico.</p>
+      <p>Al tratarse de un servicio digital, la entrega es inmediata una vez confirmado el pago. El resultado del análisis IA quedará disponible en la plataforma en un plazo estimado de 2 a 10 minutos.</p>
 
       <h3>8. Protección de datos personales</h3>
-      <p>En cumplimiento de la Ley N° 29733 — Ley de Protección de Datos Personales del Perú, JE Metrados Edificaciones recopila únicamente los datos necesarios para la prestación del servicio (nombre, correo, documentos subidos). Los planos y archivos cargados son de exclusiva propiedad del usuario y no serán compartidos con terceros. El usuario puede solicitar la rectificación, cancelación u oposición al tratamiento de sus datos escribiendo a info@jemetrados.com.</p>
+      <p>En cumplimiento de la Ley N° 29733, JE Metrados Edificaciones recopila únicamente los datos necesarios para la prestación del servicio. Los planos y archivos cargados son de exclusiva propiedad del usuario y no serán compartidos con terceros.</p>
 
-      <h3>9. Propiedad intelectual</h3>
-      <p>Todo el contenido de la plataforma PresupuestOS y del sitio jemetrados.com (logotipos, diseño, código, textos, metodologías de cálculo) está protegido por derechos de autor y es propiedad de JE Metrados Edificaciones. Queda prohibida su reproducción, distribución o uso comercial sin autorización expresa y escrita.</p>
+      <h3>9. Limitación de responsabilidad</h3>
+      <p>Los presupuestos generados son referenciales y no reemplazan el criterio profesional de un ingeniero civil colegiado. JE Metrados Edificaciones no se responsabiliza por decisiones constructivas tomadas exclusivamente en base a los resultados del software.</p>
 
-      <h3>10. Limitación de responsabilidad</h3>
-      <p>Los presupuestos generados son referenciales y no reemplazan el criterio profesional de un ingeniero civil colegiado. JE Metrados Edificaciones no se responsabiliza por decisiones constructivas tomadas exclusivamente en base a los resultados del software. La empresa no se hace responsable por fallos técnicos derivados de terceros (proveedor de hosting, conectividad del usuario) ni por inexactitudes en planos subidos por el usuario.</p>
-
-      <h3>11. Legislación aplicable y resolución de conflictos</h3>
-      <p>Estos Términos y Condiciones se rigen por las leyes de la República del Perú, incluyendo la Ley N° 29571 — Código de Protección y Defensa del Consumidor. Cualquier disputa será resuelta primero mediante conciliación directa; de no llegarse a acuerdo, las partes se someten a la jurisdicción de los Juzgados de Huancayo, Junín, o ante INDECOPI según corresponda.</p>
-
-      <h3>12. Contacto y soporte</h3>
-      <p>Consultas y reclamos: info@jemetrados.com · WhatsApp +51 973 700 101 · Horario: lunes a viernes 9:00 a.m. – 6:00 p.m. (hora Perú). Última actualización: junio 2026.</p>
+      <h3>10. Legislación aplicable</h3>
+      <p>Estos Términos se rigen por las leyes de la República del Perú, incluyendo la Ley N° 29571. Cualquier disputa será resuelta ante los Juzgados de Huancayo, Junín, o ante INDECOPI según corresponda. Última actualización: junio 2026.</p>
     </div>
   </div>
 </section>
@@ -447,25 +557,22 @@ footer{padding:60px 24px 40px;background:#080a0f}
     <h2>Política de Cambios y Devoluciones</h2>
     <div class="tc">
       <h3>1. Introducción</h3>
-      <p>La presente política establece las condiciones para solicitudes de devolución o compensación de los servicios adquiridos a través de PresupuestOS (https://app.jemetrados.com), operado por JE Metrados Edificaciones, RUC 10742201053. Aplica a todos los servicios de pago: análisis IA por proyecto y planes de suscripción mensual o anual.</p>
+      <p>La presente política establece las condiciones para solicitudes de devolución de los servicios adquiridos a través de PresupuestOS, operado por JE Metrados Edificaciones, RUC 10742201053. Aplica a todos los servicios de pago: análisis IA por proyecto y planes ProjeX.</p>
 
-      <h3>2. Naturaleza del servicio y condiciones generales</h3>
-      <p>Al tratarse de servicios digitales de entrega inmediata, el análisis IA se ejecuta automáticamente al confirmarse el pago, por lo que no procede devolución una vez procesado el servicio correctamente. Los planes de suscripción pueden cancelarse en cualquier momento; la cancelación aplica al inicio del siguiente período de facturación y no genera reembolso proporcional del período en curso.</p>
+      <h3>2. Naturaleza del servicio</h3>
+      <p>Al tratarse de servicios digitales de entrega inmediata, el análisis IA se ejecuta automáticamente al confirmarse el pago, por lo que no procede devolución una vez procesado el servicio correctamente. Los planes ProjeX no tienen vencimiento; los PDFs no utilizados permanecen disponibles indefinidamente.</p>
 
-      <h3>3. Casos en los que sí procede compensación o reembolso</h3>
-      <p>Se considerará un reembolso total o análisis de reemplazo sin costo en los siguientes casos: (a) error técnico imputable al sistema que impida la entrega del resultado, (b) cobro duplicado por la misma transacción, (c) pago procesado pero servicio no activado por fallo del sistema. El plazo para solicitar la compensación es de <strong style="color:#fff">48 horas</strong> desde la transacción.</p>
+      <h3>3. Casos en que procede compensación</h3>
+      <p>Se considerará reembolso total o análisis de reemplazo sin costo en los siguientes casos: (a) error técnico imputable al sistema que impida la entrega del resultado, (b) cobro duplicado por la misma transacción, (c) pago procesado pero servicio no activado por fallo del sistema. El plazo para solicitar compensación es de <strong style="color:#fff">48 horas</strong> desde la transacción.</p>
 
       <h3>4. Proceso para solicitar devolución</h3>
-      <p>El usuario debe: (1) contactar a info@jemetrados.com o WhatsApp +51 973 700 101 dentro del plazo indicado, (2) indicar número de orden/transacción, correo registrado y descripción del problema, (3) adjuntar captura del error si aplica. JE Metrados Edificaciones evaluará la solicitud y responderá en un plazo máximo de <strong style="color:#fff">5 días hábiles</strong>.</p>
+      <p>El usuario debe contactar a info@jemetrados.com o WhatsApp +51 973 700 101 dentro del plazo indicado, indicando número de orden, correo registrado y descripción del problema. JE Metrados Edificaciones responderá en un plazo máximo de <strong style="color:#fff">5 días hábiles</strong>.</p>
 
-      <h3>5. Opciones de compensación</h3>
-      <p>Según el caso evaluado, la compensación puede ser: reembolso total al método de pago original (plazo estimado 5–10 días hábiles según el banco), crédito en cuenta para un análisis equivalente, o nuevo análisis sin costo. La modalidad será acordada con el usuario según las circunstancias.</p>
+      <h3>5. Excepciones</h3>
+      <p>No procede devolución cuando el análisis fue entregado correctamente pero el usuario no obtuvo el resultado esperado por limitaciones del plano subido (baja resolución, planos incompletos o sin escalas), o cuando la solicitud se realiza fuera del plazo establecido.</p>
 
-      <h3>6. Excepciones</h3>
-      <p>No procede devolución cuando: el análisis fue entregado correctamente y el usuario no obtuvo el resultado esperado por limitaciones del plano subido (baja resolución, planos incompletos o sin escalas), el usuario proporcionó datos incorrectos al momento de la compra, o la solicitud se realiza fuera del plazo establecido.</p>
-
-      <h3>7. Contacto</h3>
-      <p>Para cualquier consulta sobre esta política: info@jemetrados.com · +51 973 700 101 · Lunes a viernes 9:00 a.m. – 6:00 p.m. (hora Perú).</p>
+      <h3>6. Contacto</h3>
+      <p>Para consultas: info@jemetrados.com · +51 973 700 101 · Lunes a viernes 9:00 a.m. – 6:00 p.m. (hora Perú).</p>
     </div>
   </div>
 </section>
@@ -485,6 +592,7 @@ footer{padding:60px 24px 40px;background:#080a0f}
         <h4>Producto</h4>
         <a href="#servicios">Servicios</a>
         <a href="#precios">Precios</a>
+        <a href="#planes">Planes ProjeX</a>
         <a href="https://app.jemetrados.com">Iniciar sesión</a>
         <a href="https://app.jemetrados.com">Crear cuenta gratis</a>
       </div>
@@ -510,7 +618,6 @@ footer{padding:60px 24px 40px;background:#080a0f}
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-// EmailJS — reemplaza estos IDs con los tuyos de emailjs.com
 var EMAILJS_PUBLIC_KEY = 'p46eP-VpW7Kc7SrrT';
 var EMAILJS_SERVICE_ID = 'service_6dapsd8';
 var EMAILJS_TEMPLATE_ID = 'template_qz326zn';
@@ -544,32 +651,25 @@ function enviarReclamo() {
 
   var codigo = generarCodigo();
   var fecha  = new Date().toLocaleString('es-PE', {timeZone:'America/Lima'});
-
   var btn = document.querySelector('.btn-rec');
   btn.disabled = true;
   btn.textContent = '⏳ Enviando...';
 
-  var params = {
-    codigo: codigo, fecha: fecha,
-    nombre: nombre, dni: dni, email: email, tel: tel,
-    domicilio: domicilio, tipo: tipo,
-    monto: monto || 'No especificado',
-    producto: producto, desc: desc, sol: sol
-  };
-
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
-    .then(function() {
-      var msgEl = document.getElementById('msg-ok');
-      msgEl.style.display = 'block';
-      msgEl.innerHTML = '✅ Reclamo registrado correctamente.<br><strong>Código de reclamo: ' + codigo + '</strong><br>Guarda este código para seguimiento. Recibirás confirmación en <strong>' + email + '</strong>. Plazo de respuesta: 30 días calendario.';
-      btn.disabled = false;
-      btn.textContent = '📨 Registrar reclamo y obtener código';
-      ['r-nombre','r-dni','r-email','r-tel','r-domicilio','r-tipo','r-monto','r-producto','r-desc','r-sol'].forEach(function(id){ document.getElementById(id).value=''; });
-    }, function(err) {
-      alert('Error al enviar. Por favor escribe directamente a info@jemetrados.com indicando tu reclamo. Error: ' + JSON.stringify(err));
-      btn.disabled = false;
-      btn.textContent = '📨 Registrar reclamo y obtener código';
-    });
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    codigo, fecha, nombre, dni, email, tel, domicilio, tipo,
+    monto: monto || 'No especificado', producto, desc, sol
+  }).then(function() {
+    var msgEl = document.getElementById('msg-ok');
+    msgEl.style.display = 'block';
+    msgEl.innerHTML = '✅ Reclamo registrado correctamente.<br><strong>Código de reclamo: ' + codigo + '</strong><br>Guarda este código para seguimiento. Recibirás confirmación en <strong>' + email + '</strong>. Plazo de respuesta: 30 días calendario.';
+    btn.disabled = false;
+    btn.textContent = '📨 Registrar reclamo y obtener código';
+    ['r-nombre','r-dni','r-email','r-tel','r-domicilio','r-tipo','r-monto','r-producto','r-desc','r-sol'].forEach(function(id){ document.getElementById(id).value=''; });
+  }, function(err) {
+    alert('Error al enviar. Por favor escribe directamente a info@jemetrados.com. Error: ' + JSON.stringify(err));
+    btn.disabled = false;
+    btn.textContent = '📨 Registrar reclamo y obtener código';
+  });
 }
 </script>
 </body>
