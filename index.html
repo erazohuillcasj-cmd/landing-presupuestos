@@ -155,6 +155,15 @@ footer{padding:60px 24px 40px;background:#080a0f}
   .stats{gap:20px}
   .fg-2{grid-template-columns:1fr}
 }
+
+@keyframes fuego {
+  from { box-shadow: 0 0 8px rgba(245,158,11,0.6), 0 0 16px rgba(239,68,68,0.3); background: var(--naranja); }
+  to   { box-shadow: 0 0 16px rgba(245,158,11,0.9), 0 0 32px rgba(239,68,68,0.5); background: #ef4444; }
+}
+@keyframes flamea {
+  from { transform: rotate(-10deg) scale(1); }
+  to   { transform: rotate(10deg) scale(1.2); }
+}
 </style>
 </head>
 <body>
@@ -266,12 +275,33 @@ footer{padding:60px 24px 40px;background:#080a0f}
 </section>
 
 <!-- PRECIOS -->
+<!-- PRECIOS -->
 <section class="sec" id="precios">
   <div class="wrap">
     <div class="tag">Precios por proyecto</div>
     <h2>Software gratuito. Paga solo por el análisis IA.</h2>
-    <p class="sub">Todos los módulos de presupuesto manual son completamente gratuitos. Solo pagas cuando usas la IA.</p>
+    <p class="sub">Todos los módulos de presupuesto manual son completamente gratuitos. Solo pagas cuando usas la IA — con tokens.</p>
 
+    <!-- EXPLICACION TOKENS -->
+    <div style="display:flex;gap:16px;margin-bottom:40px;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:20px;text-align:center">
+        <div style="font-size:32px;margin-bottom:8px">🪙</div>
+        <div style="font-size:22px;font-weight:800;color:var(--naranja)">3 tokens</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">= S/. 1.00 con IGV</div>
+      </div>
+      <div style="flex:1;min-width:200px;background:rgba(79,158,255,0.08);border:1px solid rgba(79,158,255,0.2);border-radius:12px;padding:20px;text-align:center">
+        <div style="font-size:32px;margin-bottom:8px">🚀</div>
+        <div style="font-size:22px;font-weight:800;color:var(--accent)">Todo incluido</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">Metrados · Presupuesto · Materiales · PDF</div>
+      </div>
+      <div style="flex:1;min-width:200px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:20px;text-align:center">
+        <div style="font-size:32px;margin-bottom:8px">♾️</div>
+        <div style="font-size:22px;font-weight:800;color:#22c55e">Sin vencimiento</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">Tus tokens no expiran nunca</div>
+      </div>
+    </div>
+
+    <!-- TABLA TOKENS -->
     <div class="tabla-wrap">
       <table class="tabla">
         <thead>
@@ -286,60 +316,58 @@ footer{padding:60px 24px 40px;background:#080a0f}
         <tbody>
           <tr>
             <td>1 piso</td>
-            <td><span class="p">S/. 59</span><br><span class="pdfs-tag">5 PDFs incluidos</span></td>
-            <td><span class="p">S/. 89</span><br><span class="pdfs-tag">6 PDFs incluidos</span></td>
-            <td><span class="p">S/. 119</span><br><span class="pdfs-tag">7 PDFs incluidos</span></td>
-            <td><span class="p">S/. 149</span><br><span class="pdfs-tag">8 PDFs incluidos</span></td>
+            <td><span class="p">🪙 209</span></td>
+            <td><span class="p">🪙 315</span></td>
+            <td><span class="p">🪙 421</span></td>
+            <td><span class="p">🪙 527</span></td>
           </tr>
           <tr>
             <td>2 pisos</td>
-            <td><span class="p">S/. 89</span><br><span class="pdfs-tag">6 PDFs incluidos</span></td>
-            <td><span class="p">S/. 119</span><br><span class="pdfs-tag">8 PDFs incluidos</span></td>
-            <td><span class="p">S/. 149</span><br><span class="pdfs-tag">10 PDFs incluidos</span></td>
-            <td><span class="p">S/. 199</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
+            <td><span class="p">🪙 315</span></td>
+            <td><span class="p">🪙 421</span></td>
+            <td><span class="p">🪙 527</span></td>
+            <td><span class="p">🪙 704</span></td>
           </tr>
           <tr>
             <td>3 – 4 pisos</td>
-            <td><span class="p">S/. 139</span><br><span class="pdfs-tag">8 PDFs incluidos</span></td>
-            <td><span class="p">S/. 179</span><br><span class="pdfs-tag">10 PDFs incluidos</span></td>
-            <td><span class="p">S/. 229</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
-            <td><span class="p">S/. 279</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
+            <td><span class="p">🪙 492</span></td>
+            <td><span class="p">🪙 633</span></td>
+            <td><span class="p">🪙 811</span></td>
+            <td><span class="p">🪙 988</span></td>
           </tr>
           <tr>
             <td>5 – 6 pisos</td>
-            <td><span class="p">S/. 199</span><br><span class="pdfs-tag">10 PDFs incluidos</span></td>
-            <td><span class="p">S/. 259</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
-            <td><span class="p">S/. 319</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
-            <td><span class="p">S/. 389</span><br><span class="pdfs-tag">16 PDFs incluidos</span></td>
+            <td><span class="p">🪙 1,062</span></td>
+            <td><span class="p">🪙 1,346</span></td>
+            <td><span class="p">🪙 1,629</span></td>
+            <td><span class="p">🪙 1,947</span></td>
           </tr>
           <tr>
             <td>7 – 8 pisos</td>
-            <td><span class="p">S/. 269</span><br><span class="pdfs-tag">12 PDFs incluidos</span></td>
-            <td><span class="p">S/. 339</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
-            <td><span class="p">S/. 419</span><br><span class="pdfs-tag">16 PDFs incluidos</span></td>
-            <td><span class="p">S/. 499</span><br><span class="pdfs-tag">18 PDFs incluidos</span></td>
+            <td><span class="p">🪙 1,487</span></td>
+            <td><span class="p">🪙 1,841</span></td>
+            <td><span class="p">🪙 2,231</span></td>
+            <td><span class="p">🪙 2,655</span></td>
           </tr>
           <tr>
             <td>9+ pisos</td>
-            <td><span class="p">S/. 349</span><br><span class="pdfs-tag">14 PDFs incluidos</span></td>
-            <td><span class="p">S/. 429</span><br><span class="pdfs-tag">16 PDFs incluidos</span></td>
-            <td><span class="p">S/. 519</span><br><span class="pdfs-tag">18 PDFs incluidos</span></td>
-            <td><span class="p">S/. 619</span><br><span class="pdfs-tag">20 PDFs incluidos</span></td>
+            <td><span class="p">🪙 1,983</span></td>
+            <td><span class="p">🪙 2,407</span></td>
+            <td><span class="p">🪙 2,903</span></td>
+            <td><span class="p">🪙 3,470</span></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="igv-nota">* Precios sin IGV. <strong>Se agrega IGV 18% al momento del pago.</strong> · PDF adicional si excedes el límite: desde S/. 10/PDF + IGV</p>
+    <p class="igv-nota">* Precios con IGV incluido. · PDF adicional si excedes el límite: 1–4 pisos = 30 tokens/PDF · 5+ pisos = 60 tokens/PDF</p>
 
     <!-- PDF EXTRA -->
     <div style="margin-top:40px">
       <div class="tag">PDF adicional si excedes el límite</div>
-      <p style="color:var(--muted);font-size:14px;margin-bottom:16px">Si subes más PDFs de los incluidos en tu plan, se cobra por cada PDF adicional:</p>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:16px">Si subes más PDFs de los incluidos en el análisis, se cobran tokens adicionales:</p>
       <div class="pdf-extra">
-        <div class="pdf-extra-item"><div class="pisos">1 – 2 pisos</div><div class="monto">S/. 10</div><div class="unit">/ PDF adicional + IGV</div></div>
-        <div class="pdf-extra-item"><div class="pisos">3 – 6 pisos</div><div class="monto">S/. 15</div><div class="unit">/ PDF adicional + IGV</div></div>
-        <div class="pdf-extra-item"><div class="pisos">7 – 8 pisos</div><div class="monto">S/. 20</div><div class="unit">/ PDF adicional + IGV</div></div>
-        <div class="pdf-extra-item"><div class="pisos">9+ pisos</div><div class="monto">S/. 25</div><div class="unit">/ PDF adicional + IGV</div></div>
+        <div class="pdf-extra-item"><div class="pisos">1 – 4 pisos</div><div class="monto">🪙 30</div><div class="unit">/ PDF adicional</div></div>
+        <div class="pdf-extra-item"><div class="pisos">5+ pisos</div><div class="monto">🪙 60</div><div class="unit">/ PDF adicional</div></div>
       </div>
     </div>
 
@@ -347,79 +375,93 @@ footer{padding:60px 24px 40px;background:#080a0f}
     <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:20px;margin-top:32px">
       <div style="font-size:13px;font-weight:700;color:#ef4444;margin-bottom:8px">⚠ Importante sobre la detección de la IA</div>
       <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7">
-        Si la IA detecta en tus planos <strong style="color:#fff">más pisos o mayor área</strong> de lo declarado al crear el proyecto, el resultado quedará bloqueado y deberás pagar la diferencia al plan correspondiente. Te recomendamos declarar correctamente los datos de tu proyecto antes de pagar.
+        Si la IA detecta en tus planos <strong style="color:#fff">más pisos o mayor área</strong> de lo declarado al crear el proyecto, el resultado quedará bloqueado y se descontarán los tokens del plan correcto. Te recomendamos declarar correctamente los datos de tu proyecto antes de analizar.
       </div>
     </div>
   </div>
 </section>
 
-<!-- PLANES PROJEX -->
+<!-- TOKENS IA -->
 <section class="sec bg-card" id="planes">
   <div class="wrap">
-    <div class="tag">Planes ProjeX</div>
-    <h2>Para ingenieros con múltiples proyectos</h2>
-    <p class="sub">Compra PDFs en paquete. Úsalos en cualquier proyecto, sin vencimiento y sin restricciones.</p>
+    <div class="tag">🪙 Tokens IA</div>
+    <h2>Recarga tokens y analiza cuando quieras</h2>
+    <p class="sub">3 tokens = S/. 1.00 con IGV. Sin vencimiento. Úsalos en cualquier proyecto.</p>
 
-    <div class="planes">
-      <!-- PROJEPRO -->
+    <div class="planes" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+
+      <!-- BASICO -->
       <div class="plan">
-        <h3>🏗 ProjePro</h3>
-        <p style="color:var(--muted);font-size:13px;margin-bottom:8px">Para ingenieros activos</p>
-        <div class="plan-p">S/. 469</div>
-        <div class="plan-per">+ IGV · 30 PDFs acumulables</div>
-        <div class="plan-pdf-price">≈ S/. 18/PDF con IGV</div>
+        <h3>🪙 Básico</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px">Para empezar</p>
+        <div class="plan-p">S/. 100</div>
+        <div class="plan-per">con IGV incluido</div>
+        <div class="plan-pdf-price" style="font-size:22px;font-weight:800;color:var(--naranja);margin:8px 0">🪙 300 tokens</div>
         <ul>
-          <li>30 PDFs para cualquier proyecto</li>
+          <li>Equivale a S/. 0.33 por token</li>
           <li>Sin vencimiento</li>
-          <li>Sin límite por proyecto</li>
-          <li>PDFs acumulables si compras más</li>
-          <li>Todos los módulos incluidos</li>
+          <li>Acumulables</li>
+          <li>Cualquier proyecto</li>
         </ul>
-        <a href="https://app.jemetrados.com" class="btn-plan">Registrarse y adquirir →</a>
+        <a href="https://app.jemetrados.com" class="btn-plan">Adquirir →</a>
       </div>
 
-      <!-- PROJEMAX -->
+      <!-- POPULAR -->
       <div class="plan dest">
-        <div class="plan-badge">⭐ Más popular</div>
-        <h3>🌆 ProjeMax</h3>
-        <p style="color:rgba(255,255,255,.6);font-size:13px;margin-bottom:8px">Para estudios de ingeniería</p>
-        <div class="plan-p">S/. 999</div>
-        <div class="plan-per">+ IGV · 50 PDFs acumulables</div>
-        <div class="plan-pdf-price">≈ S/. 24/PDF con IGV</div>
+        <div class="plan-badge" style="animation:fuego 0.8s ease-in-out infinite alternate"><span style="display:inline-block;animation:flamea 0.6s ease-in-out infinite alternate">🔥</span> Más popular</div>
+        <h3>🪙🪙 Popular</h3>
+        <p style="color:rgba(255,255,255,.6);font-size:13px;margin-bottom:8px">El más elegido</p>
+        <div class="plan-p">S/. 180</div>
+        <div class="plan-per">con IGV incluido</div>
+        <div class="plan-pdf-price" style="font-size:22px;font-weight:800;color:var(--naranja);margin:8px 0">🪙 600 tokens</div>
         <ul>
-          <li>50 PDFs para cualquier proyecto</li>
+          <li>Equivale a S/. 0.30 por token</li>
           <li>Sin vencimiento</li>
-          <li>Sin límite por proyecto</li>
-          <li>PDFs acumulables si compras más</li>
-          <li>Todos los módulos incluidos</li>
+          <li>Acumulables</li>
+          <li>Cualquier proyecto</li>
         </ul>
-        <a href="https://app.jemetrados.com" class="btn-plan">Registrarse y adquirir →</a>
+        <a href="https://app.jemetrados.com" class="btn-plan">Adquirir →</a>
       </div>
 
-      <!-- PROJEPRIME -->
+      <!-- PRO -->
       <div class="plan">
-        <h3>🏙 ProjePrime</h3>
-        <p style="color:var(--muted);font-size:13px;margin-bottom:8px">Para empresas constructoras</p>
-        <div class="plan-p">S/. 1,799</div>
-        <div class="plan-per">+ IGV · 80 PDFs acumulables</div>
-        <div class="plan-pdf-price">≈ S/. 27/PDF con IGV</div>
+        <h3>🪙🪙🪙 Pro</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px">Para ingenieros activos</p>
+        <div class="plan-p">S/. 300</div>
+        <div class="plan-per">con IGV incluido</div>
+        <div class="plan-pdf-price" style="font-size:22px;font-weight:800;color:var(--naranja);margin:8px 0">🪙 1,000 tokens</div>
         <ul>
-          <li>80 PDFs para cualquier proyecto</li>
+          <li>Equivale a S/. 0.30 por token</li>
           <li>Sin vencimiento</li>
-          <li>Sin límite por proyecto</li>
-          <li>PDFs acumulables si compras más</li>
-          <li>Todos los módulos incluidos</li>
+          <li>Acumulables</li>
+          <li>Cualquier proyecto</li>
         </ul>
-        <a href="https://app.jemetrados.com" class="btn-plan">Registrarse y adquirir →</a>
+        <a href="https://app.jemetrados.com" class="btn-plan">Adquirir →</a>
       </div>
+
+      <!-- ELITE -->
+      <div class="plan">
+        <h3>💎 Elite</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px">Para empresas constructoras</p>
+        <div class="plan-p">S/. 950</div>
+        <div class="plan-per">con IGV incluido</div>
+        <div class="plan-pdf-price" style="font-size:22px;font-weight:800;color:var(--naranja);margin:8px 0">🪙 3,000 tokens</div>
+        <ul>
+          <li>Equivale a S/. 0.32 por token</li>
+          <li>Sin vencimiento</li>
+          <li>Acumulables</li>
+          <li>Cualquier proyecto</li>
+        </ul>
+        <a href="https://app.jemetrados.com" class="btn-plan">Adquirir →</a>
+      </div>
+
     </div>
 
     <div style="background:rgba(79,158,255,0.08);border:1px solid rgba(79,158,255,0.2);border-radius:12px;padding:20px;margin-top:32px;text-align:center">
-      <div style="font-size:14px;font-weight:600;color:var(--accent);margin-bottom:6px">💡 ¿Cómo funcionan los planes?</div>
+      <div style="font-size:14px;font-weight:600;color:var(--accent);margin-bottom:6px">🪙 ¿Cómo funcionan los tokens?</div>
       <div style="font-size:13px;color:var(--muted);line-height:1.7">
-        Compras el plan → recibes tus PDFs → los usas en cualquier proyecto sin restricciones.<br>
-        Proyecto 1: 6 PDFs → Proyecto 2: 8 PDFs → Proyecto 3: 5 PDFs → y así hasta agotar tu saldo.<br>
-        <strong style="color:#fff">Los PDFs no vencen y se acumulan si recargas tu plan.</strong>
+        Recargas tokens → los usas en cualquier proyecto → cada plano PDF analizado descuenta tokens según pisos y área.<br>
+        <strong style="color:#fff">Los tokens no vencen y se acumulan si recargas.</strong>
       </div>
     </div>
   </div>
